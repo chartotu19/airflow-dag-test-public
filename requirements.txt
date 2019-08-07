@@ -1,0 +1,10 @@
+pip
+setuptools
+azure-storage==0.36.0
+azure-common==1.1.8
+configparser>=3.5.0
+idna>=2.6
+jsonschema>=3
+pypd
+pyyaml
+networkx
