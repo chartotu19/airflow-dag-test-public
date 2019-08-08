@@ -7,8 +7,8 @@ default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
     'start_date': datetime.utcnow(),
-    'email': ['airflow@example.com'],
-    'email_on_failure': False,
+    'email': ['selvam.palanimalai@gmail.com'],
+    'email_on_failure': True,
     'email_on_retry': False,
     'retries': 1,
     'retry_delay': timedelta(minutes=5)
@@ -20,7 +20,7 @@ dag = DAG(
 
 start = DummyOperator(task_id='start', dag=dag)
 
-passing = KubernetesPodOperator(namespace='default',
+passing = KubernetesPodOperator(namespace='selvam',
                           image="python:3.6",
                           cmds=["python","-c"],
                           arguments=["print('hello world')"],
@@ -31,7 +31,7 @@ passing = KubernetesPodOperator(namespace='default',
                           dag=dag
                           )
 
-failing = KubernetesPodOperator(namespace='default',
+failing = KubernetesPodOperator(namespace='selvam',
                           image="ubuntu:16.04",
                           cmds=["python","-c"],
                           arguments=["print('hello world')"],
