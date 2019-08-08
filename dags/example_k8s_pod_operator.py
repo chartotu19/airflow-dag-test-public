@@ -43,3 +43,4 @@ failing = KubernetesPodOperator(namespace='selvam',
                           )
 
 end = DummyOperator(task_id='end', dag=dag)
+start >> passing >> failing >> end
